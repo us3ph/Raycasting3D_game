@@ -1,0 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ytabia <ytabia@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 16:48:11 by ytabia            #+#    #+#             */
+/*   Updated: 2025/08/05 20:05:16 by ytabia           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3D.h"
+
+void	free_map(t_game *game)
+{
+	int	i;
+
+	if (!game->map)
+		return ;
+	i = 0;
+	while (game->map[i])
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);
+	game->map = NULL;
+}
+
+void	free_config(t_game *game)
+{
+	int	i;
+
+	if (!game || !game->config)
+		return ;
+	i = 0;
+	while (i < 4)
+	{
+		if (game->config->ids[i].path != NULL)
+		{
+			free(game->config->ids[i].path);
+			game->config->ids[i].path = NULL;
+		}
+		i++;
+	}
+	free(game->config);
+	game->config = NULL;
+}
+
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+void	free_this_map(char **map, int map_index)
+{
+	int	j;
+
+	j = 0;
+	while (j < map_index)
+	{
+		free(map[j]);
+		j++;
+	}
+	free(map);
+}
+
+void	cleanup_game(t_game *game)
+{
+	if (!game)
+		return ;
+	if (game->config->fd)
+		close(game->config->fd);
+	if (game->map)
+		free_map(game);
+	if (game->config)
+		free_config(game);
+}
