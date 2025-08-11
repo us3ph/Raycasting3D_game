@@ -6,7 +6,7 @@
 /*   By: ytabia <ytabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:05:54 by ytabia            #+#    #+#             */
-/*   Updated: 2025/08/05 17:11:37 by ytabia           ###   ########.fr       */
+/*   Updated: 2025/08/11 23:36:40 by ytabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ int	is_space_valid(char **map, int i, int j, int map_height)
 	int	next_row_len;
 
 	row_len = ft_strlen(map[i]);
-	if (j > 0 && map[i][j - 1] == ' ')
+	if (j > 0 && is_whitespace(map[i][j - 1]))
 		return (0);
-	if (j + 1 < row_len && map[i][j + 1] == ' ')
+	if (j + 1 < row_len && is_whitespace(map[i][j + 1]))
 		return (0);
 	if (i > 0)
 	{
 		prev_row_len = ft_strlen(map[i - 1]);
-		if (j >= prev_row_len || (map[i - 1][j] == ' '))
+		if (j >= prev_row_len || is_whitespace(map[i - 1][j]))
 			return (0);
 	}
 	if (i + 1 < map_height && map[i + 1])
 	{
 		next_row_len = ft_strlen(map[i + 1]);
-		if (j >= next_row_len || (map[i + 1][j] == ' '))
+		if (j >= next_row_len || is_whitespace(map[i + 1][j]))
 			return (0);
 	}
 	return (1);

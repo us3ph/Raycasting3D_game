@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yanflous <yanflous@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ytabia <ytabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 10:07:37 by yanflous          #+#    #+#             */
-/*   Updated: 2025/08/06 00:45:44 by yanflous         ###   ########.fr       */
+/*   Updated: 2025/08/11 23:37:10 by ytabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,6 +198,7 @@ const char		*get_texture_id(const char *line);
 int				is_texture_line(char *line);
 int				is_space_valid(char **map, int i, int j, int map_height);
 int				validate_spaces(t_game *game);
+int	is_whitespace(char c);
 void			get_player_position(t_game *game);
 int				read_config_section(int fd, t_game *game);
 int				process_line(int fd, t_game *game, t_counters *counters);

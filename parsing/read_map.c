@@ -6,7 +6,7 @@
 /*   By: ytabia <ytabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:57:09 by ytabia            #+#    #+#             */
-/*   Updated: 2025/08/05 20:03:21 by ytabia           ###   ########.fr       */
+/*   Updated: 2025/08/11 23:19:35 by ytabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,11 @@ int	read_config_section(int fd, t_game *game)
 			break ;
 	}
 	if (result == -1)
-		return (close(fd), 1);
+	{
+		err("Error:\nmap file is empty\n");
+		close(fd);
+		cleanup_game(game);
+		exit(1);
+	}
 	return (0);
 }
