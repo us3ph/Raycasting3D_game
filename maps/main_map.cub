@@ -1,12 +1,15 @@
+
 NO textures/xpm/eagle.xpm
 SO textures/xpm/colorstone.xpm
 EA textures/xpm/wood.xpm
+
 WE textures/xpm/purplestone.xpm
 
-F 30,30,30
-C 035,115,255
+F 30 ,      30 ,30        
+C     30 ,      30  ,      30     
 
-  111111
-  100W101
-11100001
-1111111
+111111
+100W01
+111001
+111101
+1111

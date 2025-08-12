@@ -6,7 +6,7 @@
 /*   By: ytabia <ytabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:57:09 by ytabia            #+#    #+#             */
-/*   Updated: 2025/08/11 23:19:35 by ytabia           ###   ########.fr       */
+/*   Updated: 2025/08/12 22:28:13 by ytabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	init_game_config(t_game *game, int fd)
 		return (1);
 	}
 	ft_memset(game->config, 0, sizeof(t_config));
+	set_rgbs_flag(game->config);
 	return (0);
 }
 
