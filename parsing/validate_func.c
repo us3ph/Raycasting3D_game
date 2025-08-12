@@ -6,7 +6,7 @@
 /*   By: ytabia <ytabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:05:54 by ytabia            #+#    #+#             */
-/*   Updated: 2025/08/12 22:31:47 by ytabia           ###   ########.fr       */
+/*   Updated: 2025/08/12 23:32:08 by ytabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ int	validate_textures(t_config *config)
 	if (!validate_rgb_is_set(config->floor_rgb))
 	{
 		err("Error:\nmissing or invalid floor\n");
+		return (1);
 	}
 	return (0);
 }
